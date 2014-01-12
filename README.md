@@ -4,7 +4,7 @@ A [Yeoman](http://yeoman.io) generator for [AngularJS](http://angularjs.org) and
 
 ## Installation
 
-Install [Git](http://git-scm.com), [node.js](http://nodejs.org), and [Ruby](https://www.ruby-lang.org/).
+Install [Git](http://git-scm.com), [node.js](http://nodejs.org), and [Ruby](https://www.ruby-lang.org/).  The development mode also requires [SQLite](http://www.sqlite.org).
 
 Install Yeoman:
 
