@@ -24,7 +24,7 @@ Run the service:
 
     rakeup
 
-Your service will run at [http://localhost:9292](http://localhost:9292).  You will get an error that no root resource classes are running.  It's time to create some resources.
+Your service will run at [http://localhost:9292](http://localhost:9292).
 
 
 ## Creating a persistent entity
@@ -36,7 +36,7 @@ Generate the entity:
 You will be asked to specify attributes for the entity, where each attribute has the following:
 
 - a name
-- a type (String, Integer, Long, Float, Double, Boolean, Date, Enum)
+- a type (String, Integer, Float, Boolean, Date, Enum)
 - for a String attribute, an optional minimum and maximum length
 - for a numeric attribute, an optional minimum and maximum value
 - for a Date attribute, an optional constraint to either past values or future values
