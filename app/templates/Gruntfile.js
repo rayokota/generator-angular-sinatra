@@ -40,7 +40,7 @@ module.exports = function (grunt) {
         {
           context: '/<%= baseName %>',
           host: 'localhost',
-          port: 9292,
+          port: 9393,
           https: false,
           changeOrigin: false
         }
