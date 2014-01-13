@@ -22,9 +22,9 @@ In a new directory, generate the service:
 
 Run the service:
 
-    shotgun
+    rackup
 
-Your service will run at [http://localhost:9393](http://localhost:9393).
+Your service will run at [http://localhost:9292](http://localhost:9292).
 
 
 ## Creating a persistent entity
@@ -45,15 +45,15 @@ You will be asked to specify attributes for the entity, where each attribute has
 
 Run the service:
 
-    shotgun
+    rackup
     
 A client-side AngularJS application will now be available by running
 
 	grunt server
 	
-The Grunt server will run at [http://localhost:9000](http://localhost:9000).  It will proxy REST requests to the Sinatra service running at [http://localhost:9393](http://localhost:9393).
+The Grunt server will run at [http://localhost:9000](http://localhost:9000).  It will proxy REST requests to the Sinatra service running at [http://localhost:9292](http://localhost:9292).
 
 At this point you should be able to navigate to a page to manage your persistent entities.  
 
-The Grunt server supports hot reloading of client-side HTML/CSS/Javascript file changes, while the Sinatra service (running with `shotgun`) supports hot reloading of Ruby file changes.
+The Grunt server supports hot reloading of client-side HTML/CSS/Javascript file changes.
 
