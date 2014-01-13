@@ -55,5 +55,5 @@ The Grunt server will run at [http://localhost:9000](http://localhost:9000).  It
 
 At this point you should be able to navigate to a page to manage your persistent entities.  
 
-The Grunt server supports hot reloading of client-side HTML/CSS/Javascript file changes, while the Sinatra service supports hot reloading of Ruby file changes.
+The Grunt server supports hot reloading of client-side HTML/CSS/Javascript file changes, while the Sinatra service (running with `shotgun`) supports hot reloading of Ruby file changes.
 
