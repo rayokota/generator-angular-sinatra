@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'shotgun', :group=>:development
+gem 'shotgun', :group => :development
 
 gem 'sinatra', '1.4.4'
 gem 'oj'
 gem 'multi_json'
 gem 'data_mapper', '1.2.0'
-gem 'dm-sqlite-adapter', '1.2.0'
-gem 'dm-postgres-adapter', '1.2.0'
+gem 'dm-sqlite-adapter', '1.2.0', :group => :development
+gem 'dm-postgres-adapter', '1.2.0', :group => :production
