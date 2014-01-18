@@ -76,7 +76,7 @@ AngularSinatraGenerator.prototype.app = function app() {
   this.mkdir(routesDir);
   this.mkdir(viewsDir);
 
-  this.copy('GemFile', 'Gemfile');
+  this.copy('Gemfile', 'Gemfile');
   this.copy('Rakefile', 'Rakefile');
   this.template('_app.rb', 'app.rb');
   this.template('_config.ru', 'config.ru');
