@@ -42,13 +42,13 @@ AngularSinatraGenerator.prototype.askFor = function askFor() {
     type: 'list',
     name: 'orm',
     message: 'Which object-relational mapping library do you wish to use?',
-    choices: ['ActiveRecords', 'DataMapper'],
-    default: 'ActiveRecords'
+    choices: ['ActiveRecord', 'DataMapper'],
+    default: 'ActiveRecord'
   }];
 
   this.prompt(prompts, function (props) {
     this.baseName = props.baseName;
-    this.orm = props.orm == 'ActiveRecords' ? 'ar' : 'dm';
+    this.orm = props.orm == 'ActiveRecord' ? 'ar' : 'dm';
 
     cb();
   }.bind(this));
