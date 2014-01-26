@@ -5,7 +5,7 @@ class <%= _.capitalize(baseName) %> < Sinatra::Application
   end
 
   get '/<%= baseName %>/<%= pluralize(name) %>/:id' do
-    entity ||= <%= _.capitalize(name) %>.get(params[:id]) || halt(404)
+    entity ||= <%= _.capitalize(name) %>.<%= orm == 'ar' ? 'find' : 'get' %>(params[:id]) || halt(404)
     format_response(entity, request.accept)
   end
 
@@ -22,7 +22,7 @@ class <%= _.capitalize(baseName) %> < Sinatra::Application
 
   put '/<%= baseName %>/<%= pluralize(name) %>/:id' do
     body = MultiJson.load request.body.read
-    entity ||= <%= _.capitalize(name) %>.get(params[:id]) || halt(404)
+    entity ||= <%= _.capitalize(name) %>.<%= orm == 'ar' ? 'find' : 'get' %>(params[:id]) || halt(404)
     halt 500 unless entity.update(
       <% _.each(attrs, function (attr) { %>
       <%= attr.attrName %>: body['<%= attr.attrName %>'],
@@ -32,7 +32,7 @@ class <%= _.capitalize(baseName) %> < Sinatra::Application
   end
 
   delete '/<%= baseName %>/<%= pluralize(name) %>/:id' do
-    entity ||= <%= _.capitalize(name) %>.get(params[:id]) || halt(404)
+    entity ||= <%= _.capitalize(name) %>.<%= orm == 'ar' ? 'find' : 'get' %>(params[:id]) || halt(404)
     halt 500 unless entity.destroy
   end
 end

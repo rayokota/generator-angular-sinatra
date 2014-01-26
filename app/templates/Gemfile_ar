@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'shotgun', :group => :development
+
+gem 'sinatra', '1.4.4'
+gem 'oj'
+gem 'multi_json'
+gem 'activerecord', '4.0.2'
+gem 'sinatra-activerecord', '1.2.3'
+gem 'sqlite3', :group => :development
+gem 'postgres', :group => :production

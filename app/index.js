@@ -37,10 +37,18 @@ AngularSinatraGenerator.prototype.askFor = function askFor() {
     name: 'baseName',
     message: 'What is the name of your application?',
     default: 'myapp'
+  },
+  {
+    type: 'list',
+    name: 'orm',
+    message: 'Which object-relational mapping library do you wish to use?',
+    choices: ['ActiveRecords', 'DataMapper'],
+    default: 'ActiveRecords'
   }];
 
   this.prompt(prompts, function (props) {
     this.baseName = props.baseName;
+    this.orm = props.orm == 'ActiveRecords' ? 'ar' : 'dm';
 
     cb();
   }.bind(this));
@@ -53,6 +61,7 @@ AngularSinatraGenerator.prototype.app = function app() {
   this.resources = [];
   this.generatorConfig = {
     "baseName": this.baseName,
+    "orm": this.orm,
     "entities": this.entities,
     "resources": this.resources
   };
@@ -65,20 +74,24 @@ AngularSinatraGenerator.prototype.app = function app() {
   this.template('Gruntfile.js', 'Gruntfile.js');
   this.copy('gitignore', '.gitignore');
 
+  var dbDir = 'db/'
+  var dbMigrateDir = dbDir + 'migrate/'
   var helpersDir = 'helpers/'
   var modelsDir = 'models/'
   var publicDir = 'public/'
   var routesDir = 'routes/'
   var viewsDir = 'views/'
+  this.mkdir(dbDir);
+  this.mkdir(dbMigrateDir);
   this.mkdir(helpersDir);
   this.mkdir(modelsDir);
   this.mkdir(publicDir);
   this.mkdir(routesDir);
   this.mkdir(viewsDir);
 
-  this.copy('Gemfile', 'Gemfile');
-  this.copy('Rakefile', 'Rakefile');
-  this.template('_app.rb', 'app.rb');
+  this.copy('Gemfile_' + this.orm, 'Gemfile');
+  this.copy('Rakefile_' + this.orm, 'Rakefile');
+  this.template('_app_' + this.orm + '.rb', 'app.rb');
   this.template('_config.ru', 'config.ru');
   this.template('helpers/_init.rb', helpersDir + 'init.rb');
   this.template('helpers/_response_format.rb', helpersDir + 'response_format.rb');

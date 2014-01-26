@@ -14,7 +14,11 @@ var EntityGenerator = module.exports = function EntityGenerator(args, options, c
   console.log('You called the entity subgenerator with the argument ' + this.name + '.');
 
   this.on('end', function () {
-    return this.spawnCommand('rake', ['upgrade']);
+    if (this.orm == 'ar') {
+      return this.spawnCommand('rake', ['db:migrate']);
+    } else {
+      return this.spawnCommand('rake', ['upgrade']);
+    }
   });
 
   fs.readFile('generator.json', 'utf8', function (err, data) {
@@ -153,7 +157,7 @@ EntityGenerator.prototype.askFor = function askFor() {
 EntityGenerator.prototype.files = function files() {
 
   this.baseName = this.generatorConfig.baseName;
-  this.packageName = this.generatorConfig.packageName;
+  this.orm = this.generatorConfig.orm;
   this.entities = this.generatorConfig.entities;
   this.entities = _.reject(this.entities, function (entity) { return entity.name === this.name; }.bind(this));
   this.entities.push({ name: this.name, attrs: this.attrs});
@@ -161,11 +165,18 @@ EntityGenerator.prototype.files = function files() {
   this.generatorConfig.entities = this.entities;
   this.generatorConfigStr = JSON.stringify(this.generatorConfig, null, '\t');
 
+  var dbDir = 'db/'
+  var dbMigrateDir = dbDir + 'migrate/'
   this.template('_generator.json', 'generator.json');
   this.template('models/_init.rb', 'models/init.rb');
-  this.template('models/_entity.rb', 'models/' + this.name + '.rb');
+  this.template('models/_entity_' + this.orm + '.rb', 'models/' + this.name + '.rb');
   this.template('routes/_init.rb', 'routes/init.rb');
   this.template('routes/_entities.rb', 'routes/' + pluralize(this.name) + '.rb');
+  if (this.orm == 'ar') {
+    var d = new Date()
+    var dateStr = '' + d.getFullYear() + (d.getMonth() + 1) + d.getDate() + d.getHours() + d.getMinutes() + d.getSeconds()
+    this.template('db/migrate/_migration.rb', dbMigrateDir + dateStr + '_create_' + pluralize(this.name) + '.rb');
+  }
 
   var publicDir = 'public/';
   var publicCssDir = publicDir + 'css/';

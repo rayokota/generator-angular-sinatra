@@ -1,11 +1,12 @@
 {
   "name": "generator-angular-sinatra",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A Yeoman generator for AngularJS + Sinatra",
   "keywords": [
     "yeoman-generator",
     "Ruby",
     "Sinatra",
+    "ActiveRecords",
     "DataMapper",
     "AngularJS",
     "Twitter Bootstrap"
