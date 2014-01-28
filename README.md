@@ -6,7 +6,7 @@ Sinatra is a Ruby-based micro-framework.  For AngularJS integration with a Java-
 
 ## Installation
 
-Install [Git](http://git-scm.com), [node.js](http://nodejs.org), and [Ruby 1.9](https://www.ruby-lang.org/).  The development mode also requires [SQLite](http://www.sqlite.org).
+Install [Git](http://git-scm.com), [node.js](http://nodejs.org), and [Ruby 1.9](https://www.ruby-lang.org/) or [JRuby (1.9 mode)](http://jruby.org/).  The development mode also requires [SQLite](http://www.sqlite.org).
 
 Install Yeoman:
 
