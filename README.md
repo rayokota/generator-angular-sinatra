@@ -2,7 +2,7 @@
 
 A [Yeoman](http://yeoman.io) generator for [AngularJS](http://angularjs.org) and [Sinatra](http://www.sinatrarb.com/).
 
-Sinatra is a Ruby-based micro-framework.  For AngularJS integration with a Java-based micro-framework, see the [Angular-Dropwizard generator](https://github.com/rayokota/generator-angular-dropwizard).
+Sinatra is a Ruby-based micro-framework.  For AngularJS integration with other micro-frameworks, see https://github.com/rayokota/MicroFrameworkRosettaStone.
 
 ## Installation
 

@@ -56,7 +56,6 @@ AngularSinatraGenerator.prototype.askFor = function askFor() {
 
 AngularSinatraGenerator.prototype.app = function app() {
 
-  this.copy('gitignore', '.gitignore');
   this.entities = [];
   this.resources = [];
   this.generatorConfig = {
