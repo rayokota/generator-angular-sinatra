@@ -4,6 +4,7 @@ gem 'rake', group: :development
 gem 'shotgun', group: :development
 
 gem 'sinatra', '1.4.4'
+gem 'thin'
 gem 'oj', platform: :mri_19
 gem 'multi_json'
 gem 'data_mapper', '1.2.0'

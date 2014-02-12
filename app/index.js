@@ -41,7 +41,7 @@ AngularSinatraGenerator.prototype.askFor = function askFor() {
   {
     type: 'list',
     name: 'orm',
-    message: 'Which object-relational mapping library do you wish to use?',
+    message: 'Which object-relational mapper would you like to use?',
     choices: ['ActiveRecord', 'DataMapper'],
     default: 'ActiveRecord'
   }];
