@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-sinatra",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "A Yeoman generator for AngularJS + Sinatra",
   "keywords": [
     "yeoman-generator",
@@ -9,7 +9,7 @@
     "ActiveRecord",
     "DataMapper",
     "AngularJS",
-    "Twitter Bootstrap"
+    "Bootstrap"
   ],
   "homepage": "https://github.com/rayokota/generator-angular-sinatra",
   "bugs": "https://github.com/rayokota/generator-angular-sinatra/issues",
