@@ -34,5 +34,6 @@ class <%= _.capitalize(baseName) %> < Sinatra::Application
   delete '/<%= baseName %>/<%= pluralize(name) %>/:id' do
     entity ||= <%= _.capitalize(name) %>.<%= orm == 'ar' ? 'find' : 'get' %>(params[:id]) || halt(404)
     halt 500 unless entity.destroy
+    status 204
   end
 end
