@@ -6,7 +6,7 @@ Sinatra is a Ruby-based micro-framework.  For AngularJS integration with other m
 
 ## Installation
 
-Install [Git](http://git-scm.com), [node.js](http://nodejs.org), and [Ruby 1.9](https://www.ruby-lang.org/) or [JRuby (1.9 mode)](http://jruby.org/).  The development mode also requires [SQLite](http://www.sqlite.org).
+Install [Git](http://git-scm.com), [node.js](http://nodejs.org), and [Ruby 1.9](https://www.ruby-lang.org/) or [JRuby (1.9 mode)](http://jruby.org/).  Install the [Bundler](http://bundler.io) gem.  The development mode also requires [SQLite](http://www.sqlite.org).
 
 Install Yeoman:
 
@@ -15,6 +15,8 @@ Install Yeoman:
 Install the Angular-Sinatra generator:
 
     npm install -g generator-angular-sinatra
+
+The above prerequisites can be installed to a VM using the [Angular-Sinatra provisioner](https://github.com/rayokota/provision-angular-sinatra).
 
 ## Creating a Sinatra service
 
