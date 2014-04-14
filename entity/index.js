@@ -14,9 +14,13 @@ var EntityGenerator = module.exports = function EntityGenerator(args, options, c
   console.log('You called the entity subgenerator with the argument ' + this.name + '.');
 
   this.on('end', function () {
-    if (this.orm == 'ar') {
+    switch (this.orm) {
+    case 'ar':
       return this.spawnCommand('rake', ['db:migrate']);
-    } else {
+      break;
+    case 'none':
+      break;
+    default:
       return this.spawnCommand('rake', ['upgrade']);
     }
   });

@@ -42,14 +42,22 @@ AngularSinatraGenerator.prototype.askFor = function askFor() {
     type: 'list',
     name: 'orm',
     message: 'Which object-relational mapper would you like to use?',
-    choices: ['ActiveRecord', 'DataMapper'],
+    choices: ['ActiveRecord', 'DataMapper', 'None'],
     default: 'ActiveRecord'
   }];
 
   this.prompt(prompts, function (props) {
     this.baseName = props.baseName;
-    this.orm = props.orm == 'ActiveRecord' ? 'ar' : 'dm';
-
+    switch (props.orm) {
+    case 'ActiveRecord':
+      this.orm = 'ar';
+      break;
+    case 'None':
+      this.orm = 'none';
+      break;
+    default:
+      this.orm = 'dm';
+    }
     cb();
   }.bind(this));
 };
@@ -80,10 +88,14 @@ AngularSinatraGenerator.prototype.app = function app() {
   var publicDir = 'public/'
   var routesDir = 'routes/'
   var viewsDir = 'views/'
-  this.mkdir(dbDir);
-  this.mkdir(dbMigrateDir);
+
+  if (! this.orm === 'none') {
+    this.mkdir(dbDir);
+    this.mkdir(dbMigrateDir);
+    this.mkdir(modelsDir);
+    this.template('models/_init.rb', modelsDir + 'init.rb');
+  }
   this.mkdir(helpersDir);
-  this.mkdir(modelsDir);
   this.mkdir(publicDir);
   this.mkdir(routesDir);
   this.mkdir(viewsDir);
@@ -94,7 +106,6 @@ AngularSinatraGenerator.prototype.app = function app() {
   this.template('_config.ru', 'config.ru');
   this.template('helpers/_init.rb', helpersDir + 'init.rb');
   this.template('helpers/_response_format.rb', helpersDir + 'response_format.rb');
-  this.template('models/_init.rb', modelsDir + 'init.rb');
   this.template('routes/_init.rb', routesDir + 'init.rb');
   this.template('routes/_index.rb', routesDir + 'index.rb');
 
